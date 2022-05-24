@@ -14,4 +14,4 @@ The trained models for Style Transfer and Action Localisation are available at:
 
 ## Environment setup
 
-Create environments by running ´conda env create -f environment_<name>.yml´
+Create environments by running ´conda env create -f environment_´<name>´.yml´
