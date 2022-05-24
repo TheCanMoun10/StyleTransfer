@@ -91,8 +91,6 @@ def get_transform(opt, params=None, grayscale=False, method=Image.BICUBIC, conve
     if 'crop' in opt.preprocess:
         if params is None:
             transform_list.append(transforms.RandomCrop(opt.crop_size))
-            # transform_list.append(transforms.RandomAutocontrast(p=opt.cont_val))
-            # transform_list.append(transforms.GaussianBlur(kernel_size=(opt.krnl_size_x, opt.krnl_size_y), sigma=(0.1,2.0)))
         else:
             transform_list.append(transforms.Lambda(lambda img: __crop(img, params['crop_pos'], opt.crop_size)))
 

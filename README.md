@@ -40,8 +40,8 @@ conda env create -f env/environment_<name>.yml
 ## Style transfer
 The style transfer is conducted using Pix2Pix and CycleGAN, using the original implementation of [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
 
-Augmentations have been made to [base_options.py](./StyleTransfer/options/base_options.py) (lines 53-59) to allow use of augmentations parameters in the dataloader. 
-In [base_dataset.py](./StyleTransfer/data/base_dataset.py) (line 102-104) a transform has been added to augment the images using transform functions from [torchvision](https://pytorch.org/vision/main/transforms.html): [RandomAutocontrast](https://pytorch.org/vision/stable/generated/torchvision.transforms.RandomAutocontrast.html#torchvision.transforms.RandomAutocontrast) and [GaussianBlur](https://pytorch.org/vision/main/generated/torchvision.transforms.GaussianBlur.html#torchvision.transforms.GaussianBlur). 
+Augmentations have been made to [base_options.py](./StyleTransfer/options/base_options.py) (lines 53-61) to allow use of augmentations parameters in the dataloader. <br/>
+In [base_dataset.py](./StyleTransfer/data/base_dataset.py) (line 100-102) a transform has been added to augment the images using transform functions from [torchvision](https://pytorch.org/vision/main/transforms.html): [RandomAutocontrast](https://pytorch.org/vision/stable/generated/torchvision.transforms.RandomAutocontrast.html#torchvision.transforms.RandomAutocontrast) and [GaussianBlur](https://pytorch.org/vision/main/generated/torchvision.transforms.GaussianBlur.html#torchvision.transforms.GaussianBlur). 
 
 In [networks.py](./StyleTransfer/models/networks.py) (line 148-154) more network generators has been added to include ResNet18, ResNet32 and ResNet36. 
 
