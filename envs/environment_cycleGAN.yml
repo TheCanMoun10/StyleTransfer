@@ -1,4 +1,4 @@
-name: cycleGAN
+name: CycleGAN
 channels:
   - pytorch
   - defaults

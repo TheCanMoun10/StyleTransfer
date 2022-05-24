@@ -57,7 +57,6 @@ class BaseOptions():
         parser.add_argument('--krnl_size_y', type=int, default=0, help='The the y-dimension of the Gaussian Kernel.')
         parser.add_argument('--min_sigma', type=float, default=0.1, help='The minimum range for standard deviation of the Gaussian Kernel.')
         parser.add_argument('--max_sigma', type=float, default=2.0, help='The maximum range for standard deviation of the Gaussian Kernel.')
-        #parser.add_argument('--krnl_size', type=tuple, default=(0, 0), help='The size of kernel for the Gaussian blurr.')
         parser.add_argument('--display_winsize', type=int, default=256, help='display window size for both visdom and HTML')
         # additional parameters
         parser.add_argument('--epoch', type=str, default='latest', help='which epoch to load? set to latest to use latest cached model')

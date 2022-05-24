@@ -1,0 +1,22 @@
+name: ImageSynthesis
+channels:
+- pytorch
+- conda-forge
+- defaults
+dependencies:
+- python=3.8
+- pytorch=1.11.0=py3.8_cuda11.3_cudnn8.2.0_0
+- scipy=1.8.0
+- cudatoolkit=11.3.1
+- pip=21.2.4
+- pip:
+  - dominate==2.6.0
+  - torchvision==0.12.0
+  - Pillow==9.1.0
+  - numpy==1.22.3
+  - visdom==0.1.8.9
+  - wandb == 0.12.16
+  - opencv-python==4.5.5.64
+  - tensorboard==2.9.0
+  - fvcore
+  - matplotlib==3.5.2

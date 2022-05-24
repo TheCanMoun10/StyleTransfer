@@ -1,4 +1,4 @@
-name: pix2pixV2
+name: Pix2Pix
 channels:
   - pytorch
   - conda-forge

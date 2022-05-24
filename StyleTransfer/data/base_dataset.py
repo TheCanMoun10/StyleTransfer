@@ -98,6 +98,7 @@ def get_transform(opt, params=None, grayscale=False, method=Image.BICUBIC, conve
 
     if opt.preprocess == 'none':
         transform_list.append(transforms.Lambda(lambda img: __make_power_2(img, base=4, method=method)))
+    
     if opt.augmentation == 'true':
         transform_list.append(transforms.RandomAutocontrast(p=opt.cont_val))
         transform_list.append(transforms.GaussianBlur(kernel_size=(opt.krnl_size_x, opt.krnl_size_y), sigma=(opt.min_sigma, opt.max_sigma)))

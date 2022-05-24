@@ -68,7 +68,7 @@ dependencies:
   - zlib=1.2.11=h7f8727e_4
   - zstd=1.4.9=haebb681_0
   - pip:
-    - fvcore==0.1.5
+    - fvcore
     - importlib-resources==5.4.0
     - iopath==0.1.9
     - opencv-python==4.5.5.64
