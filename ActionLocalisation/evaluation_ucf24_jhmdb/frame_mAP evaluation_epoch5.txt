@@ -1,0 +1,29 @@
+(pix2pixBEGAN.pytorch) damian@DESKTOP-0I4PPIG:/mnt/e/Documents/GitHub/YOWO$ python evaluation_ucf24_jh
+mdb/pascalvoc.py --gtfolder groundtruths_ucf --detfolder ucf_detections/detections_5
+
+
+AP: 61.80% (1)
+AP: 94.80% (10)
+AP: 73.49% (11)
+AP: 54.15% (12)
+AP: 54.98% (13)
+AP: 71.20% (14)
+AP: 60.76% (15)
+AP: 69.61% (16)
+AP: 62.19% (17)
+AP: 82.57% (18)
+AP: 77.52% (19)
+AP: 35.41% (2)
+AP: 81.82% (20)
+AP: 78.64% (21)
+AP: 69.84% (22)
+AP: 56.56% (23)
+AP: 76.51% (24)
+AP: 77.02% (3)
+AP: 48.97% (4)
+AP: 47.74% (5)
+AP: 92.06% (6)
+AP: 91.40% (7)
+AP: 85.67% (8)
+AP: 72.87% (9)
+mAP: 69.90%	
