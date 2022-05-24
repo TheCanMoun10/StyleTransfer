@@ -15,7 +15,7 @@ To install this repository run the following:
 git clone https://github.com/dleporis/VGIS_841_ImageSynthesis.git
 ```
 
-In order to run this project, the following dependencies will need to be installed:
+In order to run this project, the following dependencies will need to be installed: <br/>
 [pytorch and cuda toolkit](https://pytorch.org/get-started/locally/)<br/>
 [scipy](https://scipy.org/install/)<br/>
 [fvcore](https://github.com/facebookresearch/fvcore) <br/>
