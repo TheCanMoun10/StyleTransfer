@@ -45,6 +45,9 @@ In [base_dataset.py](./StyleTransfer/data/base_dataset.py) (line 100-102) a tran
 
 In [networks.py](./StyleTransfer/models/networks.py) (line 148-154) more network generators has been added to include ResNet18, ResNet32 and ResNet36. 
 
+### Style transfer outputs
+![comparisonKAIST](./images/ComparisonKAIST.png)
+
 Training and testing of the style transfer models (Pix2Pix and CycleGAN) follows the official [pytorch-CycleGAN-and-pix2pix README.md](./StyleTransfer/README.md).
 
 ## Action localisation
