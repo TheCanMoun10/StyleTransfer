@@ -44,11 +44,17 @@ Augmentations have been made to [base_options.py](./StyleTransfer/options/base_o
 In [base_dataset.py](./StyleTransfer/data/base_dataset.py) (line 100-102) a transform has been added to augment the images using transform functions from [torchvision](https://pytorch.org/vision/main/transforms.html): [RandomAutocontrast](https://pytorch.org/vision/stable/generated/torchvision.transforms.RandomAutocontrast.html#torchvision.transforms.RandomAutocontrast) and [GaussianBlur](https://pytorch.org/vision/main/generated/torchvision.transforms.GaussianBlur.html#torchvision.transforms.GaussianBlur). 
 
 In [networks.py](./StyleTransfer/models/networks.py) (line 148-154) more network generators has been added to include ResNet18, ResNet32 and ResNet36. 
+Training and testing of the style transfer models (Pix2Pix and CycleGAN) follows the official [pytorch-CycleGAN-and-pix2pix README.md](./StyleTransfer/README.md), and used a batch size of 1.
 
 ### Style transfer outputs
 ![comparisonKAIST](./images/ComparisonKAIST.png)
+Comparison study between Pix2Pix and CycleGANs synthetic images on images from KAIST. <br/>
+Top row: Input RGB images. <br/>
+Second row: Groundtruth thermal images. Third row: Pix2Pix thermal images. <br/>
+Fourth row: CycleGAN thermal images. <br/>
 
-Training and testing of the style transfer models (Pix2Pix and CycleGAN) follows the official [pytorch-CycleGAN-and-pix2pix README.md](./StyleTransfer/README.md).
+At its current state the style transfer model is not optimal, more data and batch sizes are needed to make more generalising models.
+
 
 ## Action localisation
 The action localisation is performed by training a YOWO model following the original implementation of [You Only Watch Once (YOWO)](https://github.com/wei-tim/YOWO)
@@ -56,10 +62,11 @@ The action localisation is performed by training a YOWO model following the orig
 Due to low available memory on the GPU in use the model was trained on the UCF101-24 dataset using a batch size of 4 for 5 epochs. Installation instructions on YOWO is provided in their [README.md](./ActionLocalisation/README.md).
 
 ## Datasets and trained models
-We have made the trained style transfer and action localisation models a available to download as a zip file on a google drive [Trained Models](https://drive.google.com/drive/folders/1xBLLkEIWq7PSnG2qWfhP_9U_faygUok5?usp=sharing). 
+We have made the trained style transfer and action localisation models a available to download as a zip file on a google drive [Trained Models](https://drive.google.com/drive/folders/1xBLLkEIWq7PSnG2qWfhP_9U_faygUok5?usp=sharing).
 
-The datasets used for testing and training CycleGAN and Pix2Pix can be found in a folder on the same google drive [datasets](https://drive.google.com/drive/folders/1xBLLkEIWq7PSnG2qWfhP_9U_faygUok5?usp=sharing).
-The datasets contain the following number of images:
+The datasets used for testing and training CycleGAN and Pix2Pix can be found in a folder on the same google drive [datasets](https://drive.google.com/drive/folders/1xBLLkEIWq7PSnG2qWfhP_9U_faygUok5?usp=sharing). <br/> The datasets used for the style transfer models were created following the guide from the original implementation of Pix2Pix [here](./StyleTransfer/docs/tips.md)
+
+The created datasets contain the following number of images:
 |                       	| num of images 	| From datasets                             	| Paired/Unpaired 	|
 |-----------------------	|---------------	|-------------------------------------------	|-----------------	|
 | kaist-test-set-v2     	| 1617          	| RGB: [KAIST](https://github.com/SoonminHwang/rgbt-ped-detection) <br>Thermal: [KAIST](https://github.com/SoonminHwang/rgbt-ped-detection)             	| Paired          	|
