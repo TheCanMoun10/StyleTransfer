@@ -12,7 +12,7 @@ The used hardware for training and testing of all the models is a 8 gigabyte NVI
 ## Dependencies and installation
 To install this repository run the following:
 ```
-git clone https://github.com/dleporis/VGIS_841_ImageSynthesis.git
+git clone https://github.com/TheCanMoun10/StyleTransfer.git
 ```
 
 In order to run this project, the following dependencies will need to be installed: <br/>
