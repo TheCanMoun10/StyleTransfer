@@ -1,4 +1,5 @@
 import argparse
+from email.policy import default
 import os
 from util import util
 import torch
@@ -53,12 +54,28 @@ class BaseOptions():
         
         # dataset augmentation parameters
         parser.add_argument('--augmentation', type=str, default='none', help='Augment the dataset. [true | none ]')
-        parser.add_argument('--cont_val', type=float, default=0, help='The contrast value to apply to dataset.')
+        parser.add_argument('--cont_prob', type=float, default=0.5, help='Probability of images in dataset being contrasted.')
         parser.add_argument('--krnl_size_x', type=int, default=0, help='The the x-dimension of the Gaussian Kernel.')
         parser.add_argument('--krnl_size_y', type=int, default=0, help='The the y-dimension of the Gaussian Kernel.')
+
         parser.add_argument('--min_sigma', type=float, default=0.1, help='The minimum range for standard deviation of the Gaussian Kernel.')
         parser.add_argument('--max_sigma', type=float, default=2.0, help='The maximum range for standard deviation of the Gaussian Kernel.')
         
+        parser.add_argument('--sharp_prob', type=float, default=0.5, help='Probability of images being sharpened')
+        parser.add_argument('--sharp_factor', type=int, default=1, help='Adjust the sharpness of the image randomly with a given probability [0 (blurred) | 1 (original image) | 2 or above ]')
+        
+        parser.add_argument('--post_prob', type=float, default=0.5, help='Probability of images being posterized')
+        parser.add_argument('--post_bits', type=int, default=8, help='Number of bits to keep for each color channel [0-8]')
+        
+        parser.add_argument('--hflip_prob', type=float, default=0.5, help='Probability of images being flipped horizontally.')
+        parser.add_argument('--vflip_prob', type=float, default=0.0, help='Probability of images being flipped vertically.')
+
+        # dataset color augmentation
+        parser.add_argument('--color_augment', type=str, default='none', help='Apply random color jitter to dataset. [true | none ]')
+        parser.add_argument('--color_brigtness', type=float, default=0, help='How much to jitter brightness. Uniformly chosen from [max(0, 1 - brightness), 1 + brightness]')
+        parser.add_argument('--color_saturation', type=float, default=0, help='How much to jitter saturation. Uniformly chosen from [max(0, 1 - saturation), 1 + saturation]')
+        parser.add_argument('--color_hue', type=float, default=0, help='How much to jitterhue. Uniformly chosen from [-hue, hue]')
+
         # additional parameters
         parser.add_argument('--epoch', type=str, default='latest', help='which epoch to load? set to latest to use latest cached model')
         parser.add_argument('--load_iter', type=int, default='0', help='which iteration to load? if load_iter > 0, the code will load models by iter_[load_iter]; otherwise, the code will load models by [epoch]')
