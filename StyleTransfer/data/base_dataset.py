@@ -103,6 +103,9 @@ def get_transform(opt, params=None, grayscale=False, method=Image.BICUBIC, conve
         transform_list.append(transforms.RandomAdjustSharpness(sharpness_factor=opt.sharp_factor, p=opt.sharp_prob))
         transform_list.append(transforms.RandomPosterize(bits=opt.post_bits, p=opt.post_prob))
 
+    if opt.color_augment == 'true':
+        transform_list.append(transforms.ColorJitter(brightness=opt.brightness, contrast=0, saturation=opt.saturation, hue=opt.hue))
+
     if not opt.no_flip:
         if params is None:
             transform_list.append(transforms.RandomHorizontalFlip(p=opt.hflip_prob))

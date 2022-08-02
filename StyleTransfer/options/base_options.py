@@ -72,9 +72,9 @@ class BaseOptions():
 
         # dataset color augmentation
         parser.add_argument('--color_augment', type=str, default='none', help='Apply random color jitter to dataset. [true | none ]')
-        parser.add_argument('--color_brigtness', type=float, default=0, help='How much to jitter brightness. Uniformly chosen from [max(0, 1 - brightness), 1 + brightness]')
-        parser.add_argument('--color_saturation', type=float, default=0, help='How much to jitter saturation. Uniformly chosen from [max(0, 1 - saturation), 1 + saturation]')
-        parser.add_argument('--color_hue', type=float, default=0, help='How much to jitterhue. Uniformly chosen from [-hue, hue]')
+        parser.add_argument('--brightness', type=float, default=0, help='How much to jitter brightness. Uniformly chosen from [max(0, 1 - brightness), 1 + brightness]')
+        parser.add_argument('--saturation', type=float, default=0, help='How much to jitter saturation. Uniformly chosen from [max(0, 1 - saturation), 1 + saturation]')
+        parser.add_argument('--hue', type=float, default=0, help='How much to jitterhue. Uniformly chosen from [-hue, hue]')
 
         # additional parameters
         parser.add_argument('--epoch', type=str, default='latest', help='which epoch to load? set to latest to use latest cached model')
