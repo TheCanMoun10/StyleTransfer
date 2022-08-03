@@ -97,19 +97,27 @@ def get_transform(opt, params=None, grayscale=False, method=Image.BICUBIC, conve
     if opt.preprocess == 'none':
         transform_list.append(transforms.Lambda(lambda img: __make_power_2(img, base=4, method=method)))
     
-    if opt.augmentation == 'true':
-        transform_list.append(transforms.RandomAutocontrast(p=opt.cont_prob))
+    if opt.apply_gaussian == 'true':
         transform_list.append(transforms.GaussianBlur(kernel_size=(opt.krnl_size_x, opt.krnl_size_y), sigma=(opt.min_sigma, opt.max_sigma)))
+    
+    if opt.adjust_sharpness == 'true':
         transform_list.append(transforms.RandomAdjustSharpness(sharpness_factor=opt.sharp_factor, p=opt.sharp_prob))
+    
+    if opt.posterize == 'true':
         transform_list.append(transforms.RandomPosterize(bits=opt.post_bits, p=opt.post_prob))
+    
+    if opt.flip_vertical == 'true':
+        transform_list.append(transforms.RandomVerticalFlip(p=opt.vflip_prob))
 
+    if opt.autocontrast == 'true':
+        transform_list.append(transforms.RandomAutocontrast(p=opt.cont_prob))
+        
     if opt.color_augment == 'true':
         transform_list.append(transforms.ColorJitter(brightness=opt.brightness, contrast=0, saturation=opt.saturation, hue=opt.hue))
 
     if not opt.no_flip:
         if params is None:
-            transform_list.append(transforms.RandomHorizontalFlip(p=opt.hflip_prob))
-            transform_list.append(transforms.RandomVerticalFlip(p=opt.vflip_prob))
+            transform_list.append(transforms.RandomHorizontalFlip(p=opt.hflip_prob))   
         elif params['flip']:
             transform_list.append(transforms.Lambda(lambda img: __flip(img, params['flip'])))
 
